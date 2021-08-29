@@ -25,8 +25,10 @@ Testing and validation
 ```
 http://localhost:8080/acmanager/swagger-ui.html
 ```
-<b>Account Manager : API for balance checking</b>, check account number balance like accountId:12345678 or accountId:88888888
-<b>Account Transfer : API for acount transfer</b>, tranfer amount in one account to another like this 
+### API Test
+**Account Manager : API for balance checking**, check account number balance like
+```accountId:12345678 or accountId:88888888```
+**Account Transfer : API for acount transfer**, tranfer amount in one account to another like this 
 ```
 {
   "accountFromId": 12345678,
