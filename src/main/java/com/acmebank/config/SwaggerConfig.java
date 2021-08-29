@@ -29,7 +29,7 @@ public class SwaggerConfig {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("ACNE Bank Account Manager")
+				.title("ACME Bank For Account Manager")
 				.description("A Technical Test")
 				.version("1.0")
 				.build();
