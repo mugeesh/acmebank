@@ -5,6 +5,10 @@ Spring boot Application
 - JDK 1.8
 
 # How to Run This Application
+### download
+```
+git clone https://github.com/mugeeshh/acmebank.git
+```
 ### build
 ```
 mvn install
