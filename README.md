@@ -25,10 +25,8 @@ java -jar target/acmebank.jar
 load data data_insert.sql and data_table.sql
 
 ### Swagger-UI
-Testing and validation
-```
-http://localhost:8080/acmanager/swagger-ui.html
-```
+Testing and validation :
+  http://localhost:8080/acmanager/swagger-ui.html
 ### API Test
 **Account Manager : API for balance checking**, check account number balance like
 ```accountId:12345678 or accountId:88888888```
