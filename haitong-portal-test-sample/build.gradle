@@ -1,0 +1,78 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.13.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'eclipse'
+}
+
+group = 'com.htisec'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+ 
+//configurations {
+	//compileOnly {
+//		extendsFrom annotationProcessor
+//	}
+//}/
+
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'SampleApp',
+                'Implementation-Version': version,
+                'Main-Class': 'com.htisec.SampleApp'
+    }
+    archiveFileName = 'sample.jar'
+    doFirst {
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+    with jar
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	// H2 DB
+	implementation('com.h2database:h2')
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//liqui base
+	implementation('org.liquibase:liquibase-core')
+	
+	// Spring Boot's JPA support
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+
+	// Spring Data REST support
+	implementation('org.springframework.boot:spring-boot-starter-data-rest')
+
+	// Spring actuator
+	implementation('org.springframework.boot:spring-boot-starter-actuator')
+	
+	// Spring Doc
+	//implementation('org.springdoc:springdoc-openapi-ui')
+	 implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.10'
+	
+
+	// Spring devtools
+	implementation('org.springframework.boot:spring-boot-devtools')
+
+	// Spring security
+	//implementation('org.springframework.boot:spring-boot-starter-security')
+
+
+ }
+
+test {
+	useJUnitPlatform()
+}

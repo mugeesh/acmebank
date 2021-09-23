@@ -1,0 +1,25 @@
+#server:
+    #servlet:
+        #context-path: /acmanager
+endpoint:
+    accountBalance: http://localhost:8080/acmanager/manager/{id}/balance
+http:
+    connection:
+        timeoutInMS: 5000
+spring:
+    datasource:
+        driverClassName: org.h2.Driver
+        platform: h2
+        url: jdbc:h2:~/test;db_close_on_exit=false;auto_server=true
+        username: mugeesh
+        password: ''
+    h2:
+        console:
+            enabled: true
+            path: /h2
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+    liquibase:
+        changeLog: classpath:db/db.changelog-master.yaml
+
+        
